@@ -1,22 +1,17 @@
 <template>
     <div>
-        <slot :user="user" text="text"></slot>
+        <slot name="title">Default</slot>
         <slot></slot>
-        <hr>ß
+        <slot></slot>
+        <slot name="default"></slot>
+        <hr/>
         <p>いいねの数</p>
-        <slot></slot>
+        <slot name="number">Default</slot>
     </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            user: {
-                firstName: 'Jack',
-                lastName: 'Donald'
-            }
-        }
-    }
+    props: ["headerText"]
 }
 </script>
