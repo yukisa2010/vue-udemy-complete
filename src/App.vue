@@ -1,28 +1,32 @@
 <template>
   <div>
     <LikeHeader>
-        <template v-slot:title>
-          <h2>こんにちは</h2>
-        </template>
-        <h3>初めましてっ</h3>
-        <template v-slot:number>
-          <p>{{ number }}</p>
-        </template>
+      <h3>初めましてっ</h3>
     </LikeHeader>
+    <button @click="currentComponent = 'Home'">Home</button>
+    <button @click="currentComponent = 'About'">About</button>
+    <keep-alive>
+      <component :is="currentComponent" ></component>
+    </keep-alive>
   </div>
 </template>
 
 <script>
 import LikeHeader from './components/LikeHeader'
+import Home from './components/Home'
+import About from './components/About'
 
 export default {
   data() {
     return {
-      number:14
-    }
+      number: 14,
+      currentComponent: 'Home'
+      }
   },
   components: {
-    LikeHeader
+    LikeHeader,
+    Home,
+    About
   },
   methods: {
     increment() {
