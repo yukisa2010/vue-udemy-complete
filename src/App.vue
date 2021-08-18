@@ -11,10 +11,6 @@
     <div style="padding: 10em;">
       <h2>イベントのフォーム</h2>
       <EventTitle v-model="eventData.title"></EventTitle>
-      <!-- <EventTitle
-        :value="eventData.title"
-        @input="eventData.title = $event"
-      ></EventTitle> -->
       <label for="maxNumber">最大人数</label>
       <input 
         id="maxNumber"
@@ -50,7 +46,7 @@
       <label for="paid">有料</label>
       <p>{{ eventData.price }}</p>
       <h3>開催場所</h3>
-      <select v-model="eventData.location" multiple>
+      <select v-model="eventData.location">
         <option 
           v-for="location in locations"
           :key="location"  
